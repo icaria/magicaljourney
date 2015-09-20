@@ -78,11 +78,10 @@ WSGI_APPLICATION = 'magicaljourney.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'LeagueBuddy',
-        'USER': 'root',
-        'PASSWORD': '57425962',
-        'HOST': 'localhost',   # Or an IP Address that your DB is hosted on
-        'PORT': '3306',
+        'HOST': 'us-cdbr-iron-east-02.cleardb.net',   # Or an IP Address that your DB is hosted on
+        'NAME': 'heroku_c059a9159756e98',
+        'USER': 'b84fd9f049a672',
+        'PASSWORD': '2133b9a3',
     }
 }
 
