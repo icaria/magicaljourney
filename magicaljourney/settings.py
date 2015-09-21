@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/1.8/ref/settings/
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
+from datetime import timedelta
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -80,15 +81,15 @@ WSGI_APPLICATION = 'magicaljourney.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.8/ref/settings/#databases
 
-#DATABASES = {
-#    'default': {
-#        'ENGINE': 'django.db.backends.mysql',
-#        'HOST': 'us-cdbr-iron-east-02.cleardb.net',   # Or an IP Address that your DB is hosted on
-#        'NAME': 'heroku_c059a9159756e98',
-#        'USER': 'b84fd9f049a672',
-#        'PASSWORD': '2133b9a3',
-#    }
-#}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'HOST': 'us-cdbr-iron-east-02.cleardb.net',   # Or an IP Address that your DB is hosted on
+#         'NAME': 'heroku_c059a9159756e98',
+#         'USER': 'b84fd9f049a672',
+#         'PASSWORD': '2133b9a3',
+#     }
+# }
 
 DATABASES = {
     'default': {
@@ -128,5 +129,12 @@ CELERY_ACCEPT_CONTENT = ['application/json']
 CELERY_TASK_SERIALIZER = 'json'
 CELERY_RESULT_SERIALIZER = 'json'
 CELERY_TIMEZONE = 'Africa/Nairobi'
+
+CELERYBEAT_SCHEDULE = {
+    'update-account': {
+        'task': 'tasks.update',
+        'schedule': timedelta(seconds=10),
+    }
+}
 
 RIOT_API_KEY = 'edf81f2d-039d-49ad-a0ab-5a4c75179db4'

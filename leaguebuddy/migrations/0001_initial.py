@@ -13,44 +13,44 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Account',
             fields=[
-                ('AccountId', models.BigIntegerField(serialize=False, primary_key=True)),
-                ('Name', models.CharField(max_length=50)),
-                ('Level', models.BigIntegerField()),
-                ('IsOnline', models.BinaryField()),
-                ('LastUpdated', models.DateTimeField()),
+                ('id', models.BigIntegerField(serialize=False, primary_key=True)),
+                ('name', models.CharField(max_length=50)),
+                ('level', models.BigIntegerField()),
+                ('is_online', models.BinaryField()),
+                ('last_updated', models.DateTimeField()),
             ],
         ),
         migrations.CreateModel(
             name='Division',
             fields=[
-                ('DivisionId', models.AutoField(serialize=False, primary_key=True)),
-                ('Description', models.CharField(max_length=30)),
+                ('id', models.AutoField(serialize=False, primary_key=True)),
+                ('description', models.CharField(max_length=30)),
             ],
         ),
         migrations.CreateModel(
             name='League',
             fields=[
-                ('LeagueId', models.AutoField(serialize=False, primary_key=True)),
-                ('Description', models.CharField(max_length=30)),
+                ('id', models.AutoField(serialize=False, primary_key=True)),
+                ('description', models.CharField(max_length=30)),
             ],
         ),
         migrations.CreateModel(
             name='Notification',
             fields=[
-                ('NotificationId', models.AutoField(serialize=False, primary_key=True)),
-                ('Message', models.CharField(max_length=1024)),
-                ('DateTime', models.DateTimeField()),
-                ('AccountId', models.ForeignKey(to='leaguebuddy.Account')),
+                ('id', models.AutoField(serialize=False, primary_key=True)),
+                ('message', models.CharField(max_length=1024)),
+                ('date_time', models.DateTimeField()),
+                ('account', models.ForeignKey(to='leaguebuddy.Account')),
             ],
         ),
         migrations.AddField(
             model_name='account',
-            name='DivisionId',
+            name='division',
             field=models.ForeignKey(to='leaguebuddy.Division'),
         ),
         migrations.AddField(
             model_name='account',
-            name='LeagueId',
+            name='league',
             field=models.ForeignKey(to='leaguebuddy.League'),
         ),
     ]
