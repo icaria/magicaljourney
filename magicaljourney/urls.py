@@ -16,6 +16,9 @@ Including another URLconf
 from django.conf.urls import include, url
 from django.contrib import admin
 
+import leaguebuddy.views
+
 urlpatterns = [
+    url(r'^$', leaguebuddy.views.index, name='index'),
     url(r'^admin/', include(admin.site.urls)),
 ]
