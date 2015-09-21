@@ -2,7 +2,6 @@ from django.test import TestCase
 from django.utils import timezone
 from leaguebuddy.models import *
 from leaguebuddy.tasks import *
-import datetime
 
 # Create your tests here.
 class AccountTestCase(TestCase):
