@@ -15,10 +15,12 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
+from django.conf.urls.static import static
 
+import settings
 import leaguebuddy.views
 
 urlpatterns = [
     url(r'^$', leaguebuddy.views.index, name='index'),
     url(r'^admin/', include(admin.site.urls)),
-]
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
