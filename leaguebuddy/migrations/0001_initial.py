@@ -13,11 +13,11 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Account',
             fields=[
-                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
-                ('AccountId', models.BigIntegerField()),
+                ('AccountId', models.BigIntegerField(serialize=False, primary_key=True)),
                 ('Name', models.CharField(max_length=50)),
+                ('Level', models.BigIntegerField()),
                 ('IsOnline', models.BinaryField()),
-                ('InGame', models.BinaryField()),
+                ('LastUpdated', models.DateTimeField()),
             ],
         ),
         migrations.CreateModel(
