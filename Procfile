@@ -1,1 +1,1 @@
-web: gunicorn leaguebuddy.wsgi --log-file -
+web: gunicorn magicaljourney.wsgi --log-file -
